@@ -14,7 +14,7 @@ plataformas = ["airbnb", "hoteis.com", "booking.com"]
 
 def create_db(qtd_imoveis):
     Faker.seed(0)
-    fake = Faker('pt-br')
+    fake = Faker("pt-br")
     for _ in range(qtd_imoveis):
         hospedes = random.randint(1, 10)
         banheiros = random.randint(1, 5)
@@ -32,7 +32,7 @@ def create_db(qtd_imoveis):
             taxa = round(random.uniform(50, 300), 2)
             a = Anuncio(imovel=i, plataforma=plataforma, taxa_plataforma=taxa)
             a.save()
-            for _ in range(random.randint(1, 2)):
+            if bool(random.getrandbits(1)):
                 random_month = random.randint(1, 12)
                 random_day = random.randint(1, 21)
                 random_plus_days = random.randint(1, 5)
