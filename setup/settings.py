@@ -38,9 +38,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "real_state_app",
-    "announcement_app",
-    "reservation_app",
+    "imovel_app",
+    "anuncios_app",
+    "reservas_app",
     "django_filters",
 ]
 
