@@ -19,7 +19,7 @@ class ImovelTestCase(APITestCase):
         response = self.client.get(self.list_url)
         self.assertEquals(response.status_code, status.HTTP_200_OK)
 
-    def test_create_imovel(self):
+    def test_post_imovel(self):
         """Test para verificar requisitao POST imoveis"""
         data = {
             "limite_de_hospedes": 1,
@@ -30,7 +30,7 @@ class ImovelTestCase(APITestCase):
         response = self.client.post(self.list_url, data=data)
         self.assertEquals(response.status_code, status.HTTP_201_CREATED)
 
-    def test_create_wrong_imovel(self):
+    def test_wrong_post_imovel(self):
         data = {
             "limite_de_hospedes": "Teste",
             "banheiros": 2,

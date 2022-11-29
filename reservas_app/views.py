@@ -8,10 +8,11 @@ from django_filters.rest_framework import DjangoFilterBackend
 class ReservaViewSet(viewsets.ModelViewSet):
     """Exibindo todas as reservas"""
 
-    queryset = Reserva.objects.all()
+    queryset = Reserva.objects.all().order_by("codigo_reserva")
     serializer_class = ReservaSerializer
     filter_backends = [
         DjangoFilterBackend,
         filters.OrderingFilter,
     ]
-    ordering_fields = ["preco_total"]
+    ordering_fields = ["preco_total", "id"]
+    search_fields = ["id"]

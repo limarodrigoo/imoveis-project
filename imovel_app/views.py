@@ -8,7 +8,7 @@ from imovel_app.serializer import ImovelSerializer, ListaImoveisAnuncioSerialize
 class ImoveisViewSet(viewsets.ModelViewSet):
     """Exibindo todos os Imóveis"""
 
-    queryset = Imovel.objects.all()
+    queryset = Imovel.objects.all().order_by("id")
     serializer_class = ImovelSerializer
     filter_backends = [
         DjangoFilterBackend,
