@@ -13,6 +13,7 @@ class ReservaViewSet(viewsets.ModelViewSet):
     filter_backends = [
         DjangoFilterBackend,
         filters.OrderingFilter,
+        filters.SearchFilter,
     ]
     ordering_fields = ["preco_total", "id"]
     search_fields = ["id"]
