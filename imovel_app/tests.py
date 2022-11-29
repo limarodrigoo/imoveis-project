@@ -18,7 +18,6 @@ class ImovelTestCase(APITestCase):
         """Teste para verificar requisiçaõ GET imoveis"""
         response = self.client.get(self.list_url)
         self.assertEquals(response.status_code, status.HTTP_200_OK)
-        self.assertEquals(Imovel.objects.count(), 2)
 
     def test_create_imovel(self):
         """Test para verificar requisitao POST imoveis"""
@@ -30,3 +29,25 @@ class ImovelTestCase(APITestCase):
         }
         response = self.client.post(self.list_url, data=data)
         self.assertEquals(response.status_code, status.HTTP_201_CREATED)
+
+    def test_create_wrong_imovel(self):
+        data = {
+            "limite_de_hospedes": "Teste",
+            "banheiros": 2,
+            "pet_friendly": False,
+            "limpeza": 35,
+        }
+        response = self.client.post(self.list_url, data=data)
+        self.assertEquals(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    def test_patch_imovel(self):
+        data = {
+            "limite_de_hospedes": 4,
+            "pet_friendly": True,
+        }
+        response = self.client.patch("/imoveis/%d/" % (self.imovel1.id), data=data)
+        self.assertEquals(response.status_code, status.HTTP_200_OK)
+
+    def test_delete_imovel(self):
+        response = self.client.delete("/imoveis/%d/" % (self.imovel1.id))
+        self.assertEquals(response.status_code, status.HTTP_204_NO_CONTENT)

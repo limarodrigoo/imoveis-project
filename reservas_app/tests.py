@@ -39,5 +39,4 @@ class ImovelTestCase(APITestCase):
         response = self.client.post(self.list_url, data=wrong_data)
         self.assertEquals(response.status_code, status.HTTP_400_BAD_REQUEST)
         response2 = self.client.post(self.list_url, data=data)
-        print(response2.data)
         self.assertEquals(response2.status_code, status.HTTP_201_CREATED)
