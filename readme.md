@@ -10,11 +10,13 @@ seus anuncios e reservas.
 
 Primeiro você precisa ter o MySQL instalado e rodando no seu ambiente.
 
-Sugiro utilização de um container com a imagem do mysql utilizando o docker-compose escrito. Para isso você deve instalar o docker, docker-compose além do python3 instalado:
+Sugiro utilização de um container com a imagem do mysql utilizando o docker-compose escrito. Para isso você deve instalar o docker, docker-compose:
 
 * [Como instalar o docker](https://docs.docker.com/engine/install/) 
 
 * [Como instalar o docker-compose](https://docs.docker.com/compose/install/)
+
+Caso prefira rodar a maquina sem docker você precisara do python3 instalado:
 
 * [Como instalar o python](https://wiki.python.org/moin/BeginnersGuide/Download)
 
